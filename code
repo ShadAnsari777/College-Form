@@ -1,1 +1,269 @@
 
+import java.awt.*;
+import java.awt.event.*;
+
+public class CollegeForm extends Frame {
+
+
+    CollegeForm(){
+        Label name=new Label("NAME");
+        name.setBounds(20,40,100,30);
+        Label gender =new Label("GENDER");
+        gender.setBounds(20,80,90,30);
+        Label mobile =new Label("MOBILE");
+        mobile.setBounds(20,120,100,30);
+        Label Class =new Label("LABEL");
+        Class.setBounds(20,160,100,30);
+        Label m1=new Label("M1");
+        m1.setBounds(20,200 ,100 ,30);
+        Label m2=new Label("M2");
+        m2.setBounds(20,240 ,100 ,30);
+        Label m3=new Label("M3");
+        m3.setBounds(20,280 ,100 ,30);
+        Label m4=new Label("M4");
+        m4.setBounds(20,320 ,100 ,30);
+        Label m5=new Label("M5");
+        m5.setBounds(20,360 ,100 ,30);
+        Label total =new  Label("TOTAL");
+        total.setBounds(250,160,100,30);
+        Label Average =new Label("AVERAGE");
+        Average.setBounds(250,200,100,30);
+        Label percentage =new Label("PERCENTAGE");
+        percentage.setBounds(250,240,100,30);
+        Label grade=new Label("GRADE");
+        grade.setBounds(250,280,100,30);
+
+
+
+
+
+
+        //Creating TextField
+        TextField nf=new TextField();
+        nf.setBounds(130,40,100,30);
+        TextField mf=new TextField();
+        mf.setBounds(130,120,100,30);
+        TextField mt1=new TextField();
+        mt1.setBounds(130,200,100,30);
+        TextField mt2=new TextField();
+        mt2.setBounds(130,240,100,30);
+        TextField mt3=new TextField();
+        mt3.setBounds(130,280,100,30);
+        TextField mt4=new TextField();
+        mt4.setBounds(130,320,100,30);
+        TextField mt5=new TextField();
+        mt5.setBounds(130,360,100,30);
+        TextField tf=new TextField();
+        tf.setBounds(350,160,100,30);
+        TextField Af =new TextField();
+        Af.setBounds(350,200,100,30);
+        TextField pf =new TextField();
+        pf.setBounds(350,240,100,30);
+        TextField gf =new TextField();
+        gf.setBounds(350,280,100,30);
+
+
+
+        //creating Button
+        Button ct=new Button("CALC T");
+        ct.setBounds(500,160,100,30);
+        Button ca =new Button("CALC A");
+        ca.setBounds(500,200,100,30);
+        Button cp =new Button("CALC P");
+        cp.setBounds(500,240,100,30);
+        Button result=new Button("RESULT");
+        result.setBounds(350,500,100,30);
+
+
+
+        //Creating CheckBox And CheckList
+        CheckboxGroup cg= new CheckboxGroup();
+        Checkbox male = new Checkbox("MALE",cg,false);
+        male.setBounds(130, 80, 50, 30);
+        Checkbox female = new Checkbox("FEMALE",cg,false);
+        female.setBounds(180, 80, 70, 30);
+        Choice cl=new Choice();
+        cl.setBounds(130,160,100,40);
+        cl.add("B.SC COMPUTER SCIENCE");
+        cl.add("B.SC MATHEMATICS");
+        cl.add("B.SC POLIICAL SCIENCE");
+
+
+
+
+        //adding into Frame
+        add(name);
+        add(nf);
+        add(gender);
+        add(male);
+        add(female);
+        add(mobile);
+        add(mf);
+        add(Class);
+        add(cl);
+        add(m1);
+        add(m2);
+        add(m3);
+        add(m4);
+        add(m5);
+        add(mt1);
+        add(mt2);
+        add(mt3);
+        add(mt4);
+        add(mt5);
+        add(total);
+        add(Average);
+        add(percentage);
+        add(grade);
+        add(tf);
+        add(Af);
+        add(pf);
+        add(gf);
+        add(ct);
+        add(ca);
+        add(cp);
+        add(result);
+
+
+
+
+
+        //setting Frame
+        setSize(700,600);
+        setTitle("ARYABHATTA COLLEGE");
+        setLayout(null);
+        setVisible(true);
+        setBackground(Color.GRAY);
+
+
+
+        //using actionperformed to performe math function and calculate total
+        ct.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                String s1 = mt1.getText();
+                String s2 = mt2.getText();
+                String s3 = mt3.getText();
+                String s4 = mt4.getText();
+                String s5 = mt5.getText();
+                if(s1.isEmpty() || s2.isEmpty()||s3.isEmpty() ||s4.isEmpty() || s5.isEmpty()) {
+                    tf.setText("Please Enter The data");
+                    Af.setText("Please Enter The data");
+                    pf.setText("Please Enter The data");
+                }else {
+                    int a = Integer.parseInt(s1);
+                    int b = Integer.parseInt(s2);
+                    int c = Integer.parseInt(s3);
+                    int d = Integer.parseInt(s4);
+                    int r = Integer.parseInt(s5);
+                    int f = a+b+c+d+r;
+                    String resultt = String.valueOf(f);
+                    tf.setText(resultt);
+                }
+            }});
+
+
+        //use actionperformed to perorm average of the numbers and print on the average textfield
+        ca.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                String s1 = mt1.getText();
+                String s2 = mt2.getText();
+                String s3 = mt3.getText();
+                String s4 = mt4.getText();
+                String s5 = mt5.getText();
+                if(s1.isEmpty() || s2.isEmpty()||s3.isEmpty() ||s4.isEmpty() || s5.isEmpty()) {
+                    tf.setText("Please Enter The data");
+                    Af.setText("Please Enter The data");
+                    pf.setText("Please Enter The data");
+                }else {
+                    int a = Integer.parseInt(s1);
+                    int b = Integer.parseInt(s2);
+                    int c = Integer.parseInt(s3);
+                    int d = Integer.parseInt(s4);
+                    int r = Integer.parseInt(s5);
+                    int f = a+b+c+d+r;
+                    float avg=f/5;
+                    String resulta = String.valueOf(avg);
+                    Af.setText(resulta);
+                }
+            }});
+
+
+
+        //use actionperformed to calculate percentage and print on the percentage textfield
+        cp.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                String s1 = mt1.getText();
+                String s2 = mt2.getText();
+                String s3 = mt3.getText();
+                String s4 = mt4.getText();
+                String s5 = mt5.getText();
+                if(s1.isEmpty() || s2.isEmpty()||s3.isEmpty() ||s4.isEmpty() || s5.isEmpty()) {
+                    tf.setText("Please Enter The data");
+                    Af.setText("Please Enter The data");
+                    pf.setText("Please Enter The data");
+                }else {
+                    int a = Integer.parseInt(s1);
+                    int b = Integer.parseInt(s2);
+                    int c = Integer.parseInt(s3);
+                    int d = Integer.parseInt(s4);
+                    int r = Integer.parseInt(s5);
+                    int f = a+b+c+d+r;
+                    int p=f/5;
+                    if(p>30 & p<40){
+                        gf.setText("D");
+                    }
+                    if(p>40 & p<50){
+                        gf.setText("C");
+                    }
+                    if(p>50 & p<60){
+                        gf.setText("B");
+                    }
+                    if(p>60 &p<70){
+                        gf.setText("B+");
+                    }
+                    if(p>70 & p<80){
+                        gf.setText("A");
+                    }
+                    if(p>80 & p<100){
+                        gf.setText("A+");
+                    }
+                    String result = String.valueOf(p);
+                    pf.setText(result+"%");
+                }
+            }});
+
+
+
+
+
+        //using windowListener
+        addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){               //this is used to  use close button in awt
+                Frame frame=(Frame)e.getSource();
+                frame.dispose();
+            }
+        });
+
+
+        result.addActionListener(new ActionListener(){
+            public void actionperformed(ActionEvent e){
+                Frame f=new Frame();
+                f.setSize(700,700);
+                f.setVisible(true);
+                f.setLayout(null);
+
+            }
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+                
+            }
+        });
+
+    }
+    public static void main(String[] args){
+        new CollegeForm();
+    }
+
+}
